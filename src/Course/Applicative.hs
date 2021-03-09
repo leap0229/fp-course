@@ -243,7 +243,7 @@ lift1 ::
   (a -> b)
   -> k a
   -> k b
-lift1 f x = lift0 f <*> x
+lift1 f x = f <$> x
 
 -- | Apply, discarding the value of the first argument.
 -- Pronounced, right apply.
@@ -268,7 +268,7 @@ lift1 f x = lift0 f <*> x
   k a
   -> k b
   -> k b
-(*>) x y = (const id) <$> x <*> y
+(*>) x y = const id <$> x <*> y
 
 -- | Apply, discarding the value of the second argument.
 -- Pronounced, left apply.
