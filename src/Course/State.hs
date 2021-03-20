@@ -196,5 +196,6 @@ distinct = flip eval S.empty . filtering (\a ->
 isHappy ::
   Integer
   -> Bool
-isHappy =
-  error "todo: Course.State#isHappy"
+isHappy n = contains 1 $ firstRepeat $ produce (toInteger . square . show') n
+  where
+    square = sum . map ((\x -> x * x) . digitToInt)
